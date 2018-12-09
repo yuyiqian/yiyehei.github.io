@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>一页纸，互联网企业黑料，央视曝光</title>
+  <meta http-equiv=Content-Language content=zh-cn>
+  <meta name="keywords" content="互联网企业黑料，央视曝光企业黑料">
+  <meta name="description" content="互联网企业黑料，央视曝光企业黑料,曝光企业黑料，人人有责">
+  <script src="lib/jquery-3.2.1.min.js"></script>
+  <script src="lib/markdown.js"></script>
+</head>
+<body>
+
+<div id="content"></div>
+
+<script language="JavaScript">
+var _event_list = {};	
+window.onload =function() { 
+	readTxt('main.md');	
+}
+function readTxt(_md) {
+　　var xhr = new XMLHttpRequest();
+　　xhr.open('get',_md,true);
+　　xhr.send();
+　　xhr.onreadystatechange = function () {
+	　　if (xhr.readyState == 4&&xhr.status == 200){　　　　 
+	　　　　 var _html = xhr.responseText;
+			 document.getElementById('content').innerHTML = marked(_html);			 
+	　　} else {
+	　　　   console.log(xhr.status);
+	　  }
+　　};
+}
+</script>
+</body>
+</html>
